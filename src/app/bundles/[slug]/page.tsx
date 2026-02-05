@@ -7,13 +7,14 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 
 interface PageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export default async function BundleDetailPage({ params }: PageProps) {
-    const bundle = getBundleById(params.slug);
+    const { slug } = await params;
+    const bundle = getBundleById(slug);
 
     if (!bundle) {
         notFound();
