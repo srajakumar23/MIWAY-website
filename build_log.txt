@@ -1,0 +1,93 @@
+   Γû▓ Next.js 15.5.11
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ΓÜá Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ΓÜá Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ΓÜá Compiled with warnings in 2.6s
+
+./node_modules/@prisma/client/runtime/wasm-engine-edge.js
+A Node.js API is used (setImmediate at line: 12) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/@prisma/client/runtime/wasm-engine-edge.js
+./node_modules/.prisma/client/wasm.js
+./node_modules/.prisma/client/default.js
+./node_modules/@prisma/client/default.js
+./src/lib/prisma.ts
+./src/auth.ts
+
+./node_modules/bcryptjs/index.js
+A Node.js module is loaded ('crypto' at line 32) which is not supported in the Edge Runtime.
+Learn More: https://nextjs.org/docs/messages/node-module-in-edge-runtime
+
+Import trace for requested module:
+./node_modules/bcryptjs/index.js
+./src/auth.ts
+
+./node_modules/bcryptjs/index.js
+A Node.js API is used (setImmediate at line: 335) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/bcryptjs/index.js
+./src/auth.ts
+
+./node_modules/bcryptjs/index.js
+A Node.js API is used (setImmediate at line: 336) which is not supported in the Edge Runtime.
+Learn more: https://nextjs.org/docs/api-reference/edge-runtime
+
+Import trace for requested module:
+./node_modules/bcryptjs/index.js
+./src/auth.ts
+
+ ΓÜá Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ Γ£ô Compiled successfully in 13.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ΓÜá Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+   Generating static pages (0/17) ...
+prisma:query SELECT `main`.`SiteContent`.`id`, `main`.`SiteContent`.`key`, `main`.`SiteContent`.`content`, `main`.`SiteContent`.`updatedAt` FROM `main`.`SiteContent` WHERE `main`.`SiteContent`.`key` LIKE ? LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`SiteContent`.`id`, `main`.`SiteContent`.`key`, `main`.`SiteContent`.`content`, `main`.`SiteContent`.`updatedAt` FROM `main`.`SiteContent` WHERE `main`.`SiteContent`.`key` LIKE ? LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Bundle`.`id` FROM `main`.`Bundle` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT `main`.`Enquiry`.`id`, `main`.`Enquiry`.`name`, `main`.`Enquiry`.`school`, `main`.`Enquiry`.`email`, `main`.`Enquiry`.`phone`, `main`.`Enquiry`.`message`, `main`.`Enquiry`.`status`, `main`.`Enquiry`.`createdAt` FROM `main`.`Enquiry` WHERE 1=1 ORDER BY `main`.`Enquiry`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Bundle`.`id`, `main`.`Bundle`.`title`, `main`.`Bundle`.`grade`, `main`.`Bundle`.`description`, `main`.`Bundle`.`coverImage`, `main`.`Bundle`.`subjects`, `main`.`Bundle`.`features`, `main`.`Bundle`.`createdAt`, `main`.`Bundle`.`updatedAt`, COALESCE(`aggr_selection_0_Book`.`_aggr_count_books`, 0) AS `_aggr_count_books` FROM `main`.`Bundle` LEFT JOIN (SELECT `main`.`Book`.`bundleId`, COUNT(*) AS `_aggr_count_books` FROM `main`.`Book` WHERE 1=1 GROUP BY `main`.`Book`.`bundleId`) AS `aggr_selection_0_Book` ON (`main`.`Bundle`.`id` = `aggr_selection_0_Book`.`bundleId`) WHERE 1=1 ORDER BY `main`.`Bundle`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Enquiry`.`id` FROM `main`.`Enquiry` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Enquiry`.`id` FROM `main`.`Enquiry` WHERE `main`.`Enquiry`.`status` = ? LIMIT ? OFFSET ?) AS `sub`
+   Generating static pages (4/17) 
+   Generating static pages (8/17) 
+prisma:query SELECT `main`.`SiteContent`.`id`, `main`.`SiteContent`.`key`, `main`.`SiteContent`.`content`, `main`.`SiteContent`.`updatedAt` FROM `main`.`SiteContent` WHERE 1=1 ORDER BY `main`.`SiteContent`.`key` ASC LIMIT ? OFFSET ?
+   Generating static pages (12/17) 
+ Γ£ô Generating static pages (17/17)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+Γöî Γùï /                                    6.56 kB         148 kB
+Γö£ Γùï /_not-found                            993 B         103 kB
+Γö£ Γùï /about                                 569 B         142 kB
+Γö£ Γùï /admin                                 162 B         106 kB
+Γö£ Γùï /admin/bundles                        1.3 kB         107 kB
+Γö£ Γùï /admin/bundles/new                    1.5 kB         104 kB
+Γö£ Γùï /admin/content                       3.13 kB         105 kB
+Γö£ Γùï /admin/enquiries                       128 B         102 kB
+Γö£ Γùï /admin/settings                        128 B         102 kB
+Γö£ ╞Æ /api/auth/[...nextauth]                128 B         102 kB
+Γö£ Γùï /bundles                               569 B         142 kB
+Γö£ Γùï /contact                             3.12 kB         105 kB
+Γö£ Γùï /login                               1.44 kB         104 kB
+Γö£ Γùï /philosophy                            569 B         142 kB
+Γö£ Γùï /publish                               569 B         142 kB
+Γöö Γùï /schools                               569 B         142 kB
++ First Load JS shared by all             102 kB
+  Γö£ chunks/255-35bf8c00c5dde345.js         46 kB
+  Γö£ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  Γöö other shared chunks (total)          2.01 kB
+
+
+╞Æ Middleware                              180 kB
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
