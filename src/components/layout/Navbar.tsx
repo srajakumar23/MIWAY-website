@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight, Globe } from 'lucide-react';
@@ -39,102 +40,112 @@ export default function Navbar() {
     ];
 
     return (
-        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-            <div className={`container ${styles.navContainer}`}>
-                <Link href="/" className="flex items-center gap-2 group">
-                    <img
-                        src="/official-logo.png"
-                        alt="MIWAY - Multiple Intelligence Way"
-                        className={`h-10 lg:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${!isScrolled ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]' : ''
-                            }`}
-                    />
-                </Link>
-
-                {/* Desktop Nav - Global Tech Aesthetic */}
-                <nav className={styles.navLinks}>
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`text-sm font-bold transition-all tracking-wider uppercase ${pathname === item.href ? 'text-primary' : 'text-slate-500 hover:text-primary'
+        <>
+            <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+                <div className={`container ${styles.navContainer}`}>
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <img
+                            src="/official-logo.png"
+                            alt="MIWAY - Multiple Intelligence Way"
+                            className={`h-10 lg:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${!isScrolled ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]' : ''
                                 }`}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    <div className="h-4 w-[1px] bg-slate-200 mx-2" />
-                    <Link href="/contact">
-                        <Button
-                            variant="primary"
-                            size="sm"
-                            className="rounded-full px-6 py-5 shadow-xl shadow-primary/20 hover:scale-105 transition-all text-xs font-black uppercase tracking-widest"
-                            icon={<ArrowRight size={14} />}
-                        >
-                            Partner With Us
-                        </Button>
+                        />
                     </Link>
-                </nav>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-50 rounded-xl text-slate-900 shadow-sm"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle Menu"
-                >
-                    {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
-            </div>
-
-            {/* Mobile Menu Overlay - Premium Cinematic Transition */}
-            {isMobileMenuOpen && (
-                <div className="fixed inset-0 z-[2000] bg-white flex flex-col p-8 md:p-12 animate-in fade-in slide-in-from-bottom-5 duration-500 overflow-hidden">
-                    {/* Background Detail */}
-                    <div className="absolute inset-0 opacity-[0.03] mesh-bg-primary pointer-events-none" />
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
-
-                    <div className="relative z-10 flex justify-between items-center mb-20">
-                        <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block">
-                            <img src="/official-logo.png" alt="MIWAY" className="h-12 w-auto object-contain" />
-                        </Link>
-                        <button
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="w-14 h-14 flex items-center justify-center bg-slate-50 border border-slate-100 rounded-2xl shadow-sm text-slate-900 active:scale-95 transition-all"
-                        >
-                            <X size={28} />
-                        </button>
-                    </div>
-
-                    <nav className="relative z-10 flex flex-col gap-8">
-                        {navItems.map((item, i) => (
+                    {/* Desktop Nav - Global Tech Aesthetic */}
+                    <nav className={styles.navLinks}>
+                        {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="group flex items-center justify-between"
+                                className={`text-sm font-bold transition-all tracking-wider uppercase ${pathname === item.href ? 'text-primary' : 'text-slate-500 hover:text-primary'
+                                    }`}
                             >
-                                <span className="text-5xl md:text-6xl font-black text-slate-900 group-hover:text-primary transition-all tracking-tighter font-serif italic">
-                                    {item.name}
-                                </span>
-                                <ArrowRight className="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={32} />
+                                {item.name}
                             </Link>
                         ))}
+                        <div className="h-4 w-[1px] bg-slate-200 mx-2" />
+                        <Link href="/contact">
+                            <Button
+                                variant="primary"
+                                size="sm"
+                                className="rounded-full px-6 py-5 shadow-xl shadow-primary/20 hover:scale-105 transition-all text-xs font-black uppercase tracking-widest"
+                                icon={<ArrowRight size={14} />}
+                            >
+                                Partner With Us
+                            </Button>
+                        </Link>
                     </nav>
 
-                    <div className="relative z-10 mt-auto pt-12 border-t border-slate-100/50 flex flex-col gap-6">
-                        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                            <Button size="lg" className="w-full py-8 text-2xl font-black rounded-[2rem] shadow-2xl hover:scale-105 transition-all">Partner With Us</Button>
-                        </Link>
-
-                        <div className="flex justify-between items-center text-slate-400">
-                            <div className="flex gap-4">
-                                <Globe size={16} />
-                                <span className="text-[10px] font-black uppercase tracking-widest">Global Authority</span>
-                            </div>
-                            <p className="text-[10px] font-black uppercase tracking-widest">© {new Date().getFullYear()} MIWAY Hub</p>
-                        </div>
-                    </div>
+                    {/* Mobile Toggle */}
+                    <button
+                        className="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-50 rounded-xl text-slate-900 shadow-sm"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
                 </div>
-            )}
-        </header>
+            </header>
+
+            {/* Mobile Menu Overlay - Premium Cinematic Transition */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: '100%' }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: '100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-[9999] bg-white flex flex-col p-8 md:p-12 overflow-hidden h-[100dvh] w-screen"
+                    >
+                        {/* Background Detail */}
+                        <div className="absolute inset-0 opacity-[0.03] mesh-bg-primary pointer-events-none" />
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
+
+                        <div className="relative z-10 flex justify-between items-center mb-12 md:mb-20">
+                            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                                <img src="/official-logo.png" alt="MIWAY" className="h-10 md:h-12 w-auto object-contain" />
+                            </Link>
+                            <button
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-slate-50 border border-slate-100 rounded-2xl shadow-sm text-slate-900 active:scale-95 transition-all"
+                            >
+                                <X size={28} />
+                            </button>
+                        </div>
+
+                        <nav className="relative z-10 flex flex-col gap-6 md:gap-8">
+                            {navItems.map((item, i) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="group flex items-center justify-between"
+                                >
+                                    <span className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 group-hover:text-primary transition-all tracking-tighter font-serif italic">
+                                        {item.name}
+                                    </span>
+                                    <ArrowRight className="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={28} />
+                                </Link>
+                            ))}
+                        </nav>
+
+                        <div className="relative z-10 mt-auto pt-10 border-t border-slate-100/50 flex flex-col gap-6">
+                            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                                <Button size="lg" className="w-full py-6 md:py-8 text-xl md:text-2xl font-black rounded-[1.5rem] md:rounded-[2rem] shadow-2xl hover:scale-105 transition-all">Partner With Us</Button>
+                            </Link>
+
+                            <div className="flex justify-between items-center text-slate-400">
+                                <div className="flex gap-4">
+                                    <Globe size={16} />
+                                    <span className="text-[10px] font-black uppercase tracking-widest">Global Authority</span>
+                                </div>
+                                <p className="text-[10px] font-black uppercase tracking-widest">© {new Date().getFullYear()} MIWAY Hub</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }

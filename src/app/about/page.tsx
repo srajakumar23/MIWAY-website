@@ -12,7 +12,7 @@ export default async function AboutPage() {
             {/* Hero Section - Official Light Mode */}
             <section className="relative min-h-[90vh] flex items-center pt-32 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src="/abstract_educational_texture_1770224466075.png" alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <img src={content['about_hero_background'] || "/abstract_educational_texture_1770224466075.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/60 to-white pointer-events-none" />
 
@@ -32,37 +32,63 @@ export default async function AboutPage() {
                 </div>
             </section>
 
-            {/* Our Belief & Pedagogy - New Brochure Content */}
-            <section className="py-40 bg-white">
+            {/* Our Belief & Pedagogy - World-Class Brochure Layout */}
+            <section className="py-20 md:py-40 bg-white">
                 <div className="container">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
-                        <FadeIn>
-                            <div className="relative rounded-[4rem] overflow-hidden shadow-2xl group">
-                                <img src="/brochure/page-02.jpg" alt="Our Pedagogy" className="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-[2s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
-                                <div className="absolute bottom-12 left-12 right-12 text-white">
-                                    <p className="text-xs font-black uppercase tracking-[0.4em] mb-4 text-primary-light">Our Pedagogy</p>
-                                    <h3 className="text-4xl font-black font-serif italic mb-6 leading-none" dangerouslySetInnerHTML={{ __html: content['about_pedagogy_title'] || 'Holistic <br /> Excellence.' }} />
-                                </div>
-                            </div>
-                        </FadeIn>
-                        <FadeIn direction="left">
-                            <div className="space-y-16">
-                                <div>
-                                    <h2 className="text-[10px] font-black text-primary uppercase tracking-[0.5em] mb-6">Our Belief</h2>
-                                    <h3 className="text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-tight font-serif italic" dangerouslySetInnerHTML={{ __html: content['about_belief_title'] || 'Every student&apos;s journey is <span class="text-primary">unique.</span>' }} />
-                                    <p className="text-xl text-slate-600 font-medium leading-relaxed opacity-90">
-                                        {content['about_belief_desc'] || 'At MIWAY, we believe that education should be personalized to amplify distinct strengths. By engaging the whole brain and embracing multiple intelligences, we cultivate future-ready problem solvers equipped for an ever-evolving world.'}
+                        <FadeIn className="relative">
+                            {/* Featured Illustration with Overlapping Boxes */}
+                            <div className="relative aspect-[4/5] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl group">
+                                <img
+                                    src={content['about_pedagogy_image'] || "/visionary-success.jpg"}
+                                    alt="Visionary Success"
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]"
+                                />
+
+                                {/* Overlay: Our Belief */}
+                                <div className="absolute top-8 right-0 md:-right-8 bg-white p-8 md:p-12 shadow-2xl rounded-[2.5rem] border border-slate-100 max-w-[280px] md:max-w-xs z-20 group-hover:-translate-y-2 transition-transform duration-700">
+                                    <h4 className="text-xl md:text-2xl font-black text-slate-900 mb-4 font-serif italic uppercase tracking-tighter">Our Belief</h4>
+                                    <div className="w-12 h-1 bg-slate-900 mb-6" />
+                                    <p className="text-base text-slate-600 font-medium leading-relaxed">
+                                        At <span className="text-primary font-bold">MIWAY</span>, we believe that every student's learning journey is unique, and education should be personalized to amplify their distinct strengths.
                                     </p>
                                 </div>
-                                <div className="p-12 bg-slate-50 rounded-[3.5rem] border border-slate-100 relative overflow-hidden group">
+
+                                {/* Overlay: Our Pedagogy */}
+                                <div className="absolute bottom-0 left-0 md:-left-8 bg-mi-red p-8 md:p-12 shadow-2xl rounded-[2.5rem] text-white max-w-[320px] md:max-w-md z-20 group-hover:translate-x-2 transition-transform duration-700">
+                                    <h4 className="text-2xl md:text-3xl font-black mb-6 font-serif italic uppercase tracking-wider">Our Pedagogy</h4>
+                                    <p className="text-sm md:text-base opacity-90 leading-relaxed font-medium">
+                                        <span className="text-2xl font-black">We</span> take a holistic approach to learning, blending Whole Brain Learning with Multiple Intelligences and 21st Century Skills to offer a truly immersive educational experience. By leveraging diverse teaching frameworks like Bloom's Taxonomy, Spiral Learning, and Sensory Learning, we ensure every student not only grasps knowledge but internalizes it for life.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Strategic Watermark */}
+                            <div className="absolute -bottom-10 -right-10 text-[15rem] font-black text-slate-900/[0.03] select-none pointer-events-none -z-10 font-serif italic">
+                                Believe.
+                            </div>
+                        </FadeIn>
+
+                        <FadeIn direction="left" className="lg:pl-10">
+                            <div className="space-y-16">
+                                <div>
+                                    <h2 className="text-[10px] md:text-xs font-black text-primary uppercase tracking-[0.6em] mb-8">Pedagogical Philosophy</h2>
+                                    <h3 className="text-5xl md:text-7xl font-black text-slate-900 mb-10 tracking-tighter leading-[0.9] font-serif italic">
+                                        Every learner is <br /><span className="text-primary">unique.</span>
+                                    </h3>
+                                    <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed opacity-90 mb-10">
+                                        At MIWAY, we believe that education should be personalized to amplify distinct strengths. By engaging the whole brain and embracing multiple intelligences, we cultivate future-ready problem solvers equipped for an ever-evolving world.
+                                    </p>
+                                </div>
+
+                                <div className="p-10 md:p-16 bg-slate-50/50 backdrop-blur-3xl rounded-[3rem] md:rounded-[4rem] border border-slate-100 relative overflow-hidden group shadow-sm hover:shadow-xl transition-all">
                                     <div className="absolute inset-0 opacity-5 mesh-bg-primary group-hover:opacity-10 transition-opacity" />
                                     <div className="relative z-10">
-                                        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary mb-8 shadow-sm">
+                                        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary mb-10 shadow-sm border border-slate-100">
                                             <Sparkles size={32} />
                                         </div>
-                                        <h4 className="text-3xl font-black text-slate-900 mb-6 font-serif italic">Immersive Approach</h4>
-                                        <p className="text-lg text-slate-600 font-medium leading-relaxed opacity-80">
+                                        <h4 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 font-serif italic tracking-tighter">Immersive Approach</h4>
+                                        <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed opacity-80">
                                             We blend Whole Brain Learning with Multiple Intelligences and 21st Century Skills to offer a truly immersive experience, ensuring knowledge is internalized for life.
                                         </p>
                                     </div>

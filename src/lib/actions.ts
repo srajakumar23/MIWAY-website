@@ -82,13 +82,51 @@ export async function submitEnquiry(formData: FormData) {
     revalidatePath('/admin/enquiries');
 }
 
-// CMS Content Management Actions
-export async function updateSiteContent(key: string, content: string) {
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
+
+export async function uploadImage(formData: FormData) {
     try {
-        await prisma.siteContent.upsert({
+        const file = formData.get('file') as File;
+        if (!file) {
+            return { success: false, error: 'No file provided' };
+        }
+
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+
+        // Create a unique filename
+        const filename = `${Date.now()}-${file.name.replaceAll(' ', '_')}`;
+        const path = join(process.cwd(), 'public', 'uploads', filename);
+
+        await writeFile(path, buffer);
+        console.log(`File uploaded to ${path}`);
+
+        return {
+            success: true,
+            url: `/uploads/${filename}`
+        };
+    } catch (error) {
+        console.error('Error uploading image:', error);
+        return { success: false, error: 'Failed to upload image' };
+    }
+}
+
+// CMS Content Management Actions
+export async function updateSiteContent(key: string, content: string, type: string = 'TEXT') {
+    try {
+        await (prisma.siteContent as any).upsert({
             where: { key },
-            update: { content },
-            create: { key, content }
+            update: {
+                content,
+                // Only update type if it's provided (backward compatibility until schema is pushed)
+                ...(type !== 'TEXT' ? { type } : {})
+            },
+            create: {
+                key,
+                content,
+                type
+            }
         });
 
         // Revalidate all pages that might use this content

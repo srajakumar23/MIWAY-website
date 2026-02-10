@@ -39,7 +39,7 @@ export default function ContactClient({ content }: { content: Record<string, str
             {/* Hero Section - Executive Intake */}
             <section className="relative min-h-[90vh] flex items-center pt-32 pb-40 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src="/contact-hero.png" alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <img src={content['contact_hero_image'] || "/contact-hero.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/10 to-white/90" />
 

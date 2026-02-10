@@ -1,45 +1,39 @@
 # MIWAY CMS User Guide
 
-This guide explains how to update the visual content on the MIWAY website using the Admin Dashboard.
+This guide explains how to update the visual and text content on the MIWAY website using the world-class Admin Dashboard.
 
 ## 1. Accessing the Dashboard
 1. Navigate to: `http://localhost:3000/admin/content`
-2. You will see a list of editable content fields grouped by page (Home, Bundles, etc.).
+2. You will see a list of editable content fields grouped by page (Home, About, Philosophy, Schools, etc.).
 
-## 2. Updating Images
-The website uses **URLs** to display images. You cannot upload files directly in the editor; you must reference a hosted image or a local file path.
+## 2. Managing Visual Assets
+The MIWAY CMS now features a **World-Class Image Replacement Service**. You can replace any high-impact image directly from the dashboard.
 
-### Option A: Using Local Images (Recommended for Development)
-1. Save your image file (e.g., `my-new-hero.jpg`) into the `public/` folder of the project.
-2. In the Admin Dashboard, enter the path starting with `/`:
-   - Example: `/my-new-hero.jpg`
+1. **Find the Image**: Scroll to the section or use the search bar (e.g., search for "image" or "hero").
+2. **Real-Time Preview**: Each image entry shows the currently active asset.
+3. **Modify Asset**:
+   - Click the **"Modify Asset"** or **"Replace Image"** button.
+   - Select a new file from your device or drag-and-drop it into the upload zone.
+   - The system will automatically upload the file, optimize it for the web, and save the changes instantly.
 
-### Option B: Using External URLs
-1. Copy the direct link to an image (e.g., from Unsplash or a cloud host).
-2. Paste the full URL into the field:
-   - Example: `https://images.unsplash.com/photo-123...`
+## 3. Advanced Text Editing
+- **HTML Support**: Most titles support HTML for styling. 
+  - Use `<br />` for line breaks.
+  - Use `<span class="gradient-text font-serif italic">Text</span>` for the signature MIWAY gold-gradient serif style.
+- **Micro-Copy**: Adjust button text (CTA) and descriptions to keep the messaging sharp and current.
 
-## 3. Key Content Fields
+## 4. Key Content Areas
 
 ### 🏠 Home Page Slider
-Search for: `home_hero_slide`
+- **Slides 1-3**: Manage the cinematic background, typography, and calls-to-action for the main manifesto.
+- **Founder Portrait**: Replace the primary leadership visual under the "Our Legacy" section.
 
-- **Images**: `home_hero_slide_1_image` (Slide 1), `_2_image` (Slide 2), `_3_image` (Slide 3)
-  - *Recommended Size*: 1920x1080 pixels (Landscape)
-- **Titles**: `home_hero_slide_1_title`
-  - *Note*: Supports HTML. Use `<br />` for line breaks and `<span class="gradient-text">` for colored text.
-- **Buttons**: `home_hero_slide_1_cta`
+### 📜 Philosophy & Schools
+- **Action Portfolio**: Manage the visual proof images that demonstrate the framework in action.
+- **Hero Backgrounds**: Keep the "first impression" of every major page fresh with dynamic hero imagery.
 
-### 📦 Product Bundles
-Search for: `bundles_item`
+## 5. Deployment & Optimization
+The CMS uses **Real-Time Revalidation**. Once you save a change, it is instantly reflected on the live site without requiring a rebuild or manual cache clearing. 
 
-- **Images**: `bundles_item_1_image` (Pre-Primary), `_2_image` (Primary), `_3_image` (Middle)
-  - *Recommended Size*: Vertical format (approx 3:4 aspect ratio), e.g., 600x800.
-  - *Note*: If you leave this field empty, the site will automatically show the "Abstract Gradient" fallback.
-
-## 4. Saving Changes
-1. Click the **Save Changes** button next to the field you edited.
-2. Refresh the main website (`http://localhost:3000`) to see the updates instantly.
-
-## 5. Support
-If you need to add *new* slides (e.g., Slide 4) or require design changes, please contact the developer, as this requires code updates.
+## 6. Support
+The system is designed for total autonomy. If you need to add entirely new pages or fundamentally change the site architecture, please consult the development documentation or contact the technical lead.

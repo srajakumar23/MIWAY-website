@@ -78,7 +78,7 @@ export default async function PhilosophyPage() {
             {/* Hero Section - The Manifesto */}
             <section className="relative min-h-[90vh] flex items-center pt-32 pb-40 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src="/philosophy-hero.png" alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <img src={content['philosophy_hero_image'] || "/philosophy-hero.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
                 </div>
                 {/* Gradient Overlay for Readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/40 to-white pointer-events-none" />
@@ -176,10 +176,10 @@ export default async function PhilosophyPage() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { img: '/brochure/page-06.jpg', title: 'Spiral Learning' },
-                            { img: '/brochure/page-07.jpg', title: 'Multilingual Integration' },
-                            { img: '/brochure/page-09.jpg', title: 'Whole Brain Philosophy' },
-                            { img: '/brochure/page-10.jpg', title: 'Bloom’s Taxonomy' }
+                            { img: content['philosophy_action_image_1'] || '/brochure/page-06.jpg', title: 'Spiral Learning' },
+                            { img: content['philosophy_action_image_2'] || '/brochure/page-07.jpg', title: 'Multilingual Integration' },
+                            { img: content['philosophy_action_image_3'] || '/brochure/page-09.jpg', title: 'Whole Brain Philosophy' },
+                            { img: content['philosophy_action_image_4'] || '/brochure/page-10.jpg', title: 'Bloom’s Taxonomy' }
                         ].map((item, i) => (
                             <FadeIn key={i} delay={0.1 * i} className="group">
                                 <div className="bg-white p-4 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 h-[500px] flex flex-col">

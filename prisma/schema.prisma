@@ -22,22 +22,22 @@ model Bundle {
   grade       String
   description String?
   coverImage  String?
-  subjects    String   // Store as JSON string ["Math", "Science"]
-  features    String   // Store as JSON string
-  books       Book[]
+  subjects    String
+  features    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  books       Book[]
 }
 
 model Book {
-  id          String   @id @default(cuid())
-  title       String
-  subject     String
-  type        String   // Textbook, Workbook, Assessment
-  coverImage  String?
-  samplePdf   String?
-  bundleId    String
-  bundle      Bundle   @relation(fields: [bundleId], references: [id], onDelete: Cascade)
+  id         String  @id @default(cuid())
+  title      String
+  subject    String
+  type       String
+  coverImage String?
+  samplePdf  String?
+  bundleId   String
+  bundle     Bundle  @relation(fields: [bundleId], references: [id], onDelete: Cascade)
 }
 
 model Enquiry {
@@ -55,5 +55,6 @@ model SiteContent {
   id        String   @id @default(cuid())
   key       String   @unique
   content   String
+  type      String   @default("TEXT")
   updatedAt DateTime @updatedAt
 }

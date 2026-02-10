@@ -12,37 +12,37 @@ export default function Footer() {
 
     return (
 
-        <footer className="bg-slate-50 pt-40 pb-20 relative overflow-hidden text-slate-900 border-t border-slate-200">
+        <footer className="bg-slate-50 pt-20 md:pt-40 pb-20 relative overflow-hidden text-slate-900 border-t border-slate-200">
             {/* Cinematic Background - Light Mode */}
             <div className="absolute inset-0 opacity-30 mesh-bg-primary" />
             <div className="absolute inset-0 bg-[url('/noise.png')] opacity-30 mix-blend-overlay" />
 
             <div className="container relative z-10">
                 {/* Massive Branding - Fluid Typography Fix */}
-                <div className="mb-24 text-center">
+                <div className="mb-16 md:mb-24 text-center">
                     <FadeIn>
-                        <h2 className="text-xs font-black text-primary uppercase tracking-[0.5em] mb-8">The Future of Learning</h2>
-                        <h1 className="text-[15vw] lg:text-[12rem] font-black leading-[0.8] tracking-tighter text-slate-900 select-none opacity-[0.05]">
+                        <h2 className="text-[10px] md:text-xs font-black text-primary uppercase tracking-[0.4em] md:tracking-[0.5em] mb-6 md:mb-8">The Future of Learning</h2>
+                        <h1 className="text-[20vw] md:text-[15vw] lg:text-[12rem] font-black leading-[0.8] tracking-tighter text-slate-900 select-none opacity-[0.05]">
                             MIWAY
                         </h1>
                     </FadeIn>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-12 mb-32 border-t border-slate-200 pt-20">
-                    <div className="lg:col-span-4 space-y-12">
+                <div className="grid lg:grid-cols-12 gap-8 md:gap-12 mb-20 md:mb-32 border-t border-slate-200 pt-12 md:pt-20">
+                    <div className="lg:col-span-4 space-y-8 md:space-y-12">
                         <Link href="/" className="inline-block group">
                             <img
                                 src="/official-logo.png"
                                 alt="MIWAY"
-                                className="h-24 w-auto object-contain hover:opacity-100 transition-opacity"
+                                className="h-16 md:h-24 w-auto object-contain hover:opacity-100 transition-opacity"
                             />
                         </Link>
-                        <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-sm font-serif italic">
+                        <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-sm font-serif italic">
                             Redefining the educational landscape through diverse intelligence and neuroscience-driven pedagogy.
                         </p>
-                        <div className="flex gap-4 pt-4">
+                        <div className="flex gap-4 pt-2">
                             {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                                <a key={i} href="#" className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300">
+                                <a key={i} href="#" className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300">
                                     <Icon size={20} />
                                 </a>
                             ))}

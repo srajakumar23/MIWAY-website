@@ -25,10 +25,14 @@ export function FadeIn({
 
     return (
         <motion.div
-            initial={{ opacity: 0, ...directions[direction] }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            initial={{ opacity: 0, filter: 'blur(10px)', ...directions[direction] }}
+            whileInView={{ opacity: 1, filter: 'blur(0px)', x: 0, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay, ease: "easeOut" }}
+            transition={{
+                duration: 0.8,
+                delay,
+                ease: [0.22, 1, 0.36, 1] // Custom "World-Class" Bezier
+            }}
             className={className}
             style={style}
         >
