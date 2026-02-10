@@ -2,6 +2,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { Brain, Users, Target, Lightbulb, BookOpen, Award, ArrowRight, Zap, Globe, Sparkles, Star, Layers, Activity, Compass, Milestone } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPageContent } from '@/lib/content';
 
 const philosophies = [
@@ -78,7 +79,14 @@ export default async function PhilosophyPage() {
             {/* Hero Section - The Manifesto */}
             <section className="relative min-h-[90vh] flex items-center pt-32 pb-40 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src={content['philosophy_hero_image'] || "/philosophy-hero.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <Image
+                        src={content['philosophy_hero_image'] || "/philosophy-hero.png"}
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover scale-105 animate-pulse-slow"
+                        sizes="100vw"
+                    />
                 </div>
                 {/* Gradient Overlay for Readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/40 to-white pointer-events-none" />
@@ -185,7 +193,13 @@ export default async function PhilosophyPage() {
                                 <div className="bg-white p-4 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-700 h-[500px] flex flex-col">
                                     <div className="flex-1 rounded-[2rem] overflow-hidden bg-slate-100 border border-slate-50 relative">
                                         <div className="absolute inset-0 bg-slate-900/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                                        <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0" />
+                                        <Image
+                                            src={item.img}
+                                            alt={item.title}
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                     </div>
                                     <div className="pt-8 pb-4 text-center">
                                         <h4 className="text-xl font-black text-slate-900 font-serif italic">{item.title}</h4>

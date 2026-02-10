@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import { ArrowRight, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export interface Slide {
     image: string;
@@ -40,10 +41,13 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
                 >
                     {/* Radiance Base Layer */}
                     <div className="absolute inset-0 bg-slate-950">
-                        <img
+                        <Image
                             src={slides[current].image}
                             alt=""
-                            className="w-full h-full object-cover opacity-100 md:opacity-70 transition-all duration-1000 scale-105 group-hover:scale-100"
+                            fill
+                            priority={current === 0}
+                            className="object-cover opacity-100 md:opacity-70 transition-all duration-1000 scale-105 group-hover:scale-100"
+                            sizes="100vw"
                         />
                     </div>
                     {/* World-Class Cinematic Overlays */}

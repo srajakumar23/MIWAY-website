@@ -3,6 +3,7 @@
 import styles from './home.module.css';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BookOpen, Brain, Sparkles, Star, Award, TrendingUp, Users, CheckCircle2, Globe, Lightbulb, Zap } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 
@@ -180,7 +181,13 @@ export default function HomeClient({ content }: HomeClientProps) {
                         <FadeIn direction="left" className="relative group">
                             <div className="aspect-[4/5] bg-slate-900 rounded-[3rem] md:rounded-[5rem] overflow-hidden relative shadow-2xl">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 mix-blend-overlay z-10" />
-                                <img src={getContent('home_about_image', '/founder-updated.png')} alt="Dr. J. Arawindhan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                                <Image
+                                    src={getContent('home_about_image', '/founder-updated.png')}
+                                    alt="Dr. J. Arawindhan"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
 
                                 <div className="absolute bottom-6 md:bottom-12 left-6 md:left-12 right-6 md:right-12 z-20">
                                     <div className="bg-white/10 backdrop-blur-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-2xl">

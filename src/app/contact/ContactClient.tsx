@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import { Mail, MapPin, Phone, ArrowRight, Zap, Globe, Sparkles, Building2, Clock, CheckCircle2 } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import { submitEnquiry } from '@/lib/actions';
@@ -39,7 +40,14 @@ export default function ContactClient({ content }: { content: Record<string, str
             {/* Hero Section - Executive Intake */}
             <section className="relative min-h-[90vh] flex items-center pt-32 pb-40 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src={content['contact_hero_image'] || "/contact-hero.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <Image
+                        src={content['contact_hero_image'] || "/contact-hero.png"}
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover scale-105 animate-pulse-slow"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/10 to-white/90" />
 

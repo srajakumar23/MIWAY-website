@@ -1,5 +1,6 @@
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPageContent } from '@/lib/content';
 import { Award, Target, Users, Heart, ArrowRight, ShieldCheck, Zap, Globe, Sparkles, BookOpen } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -12,7 +13,14 @@ export default async function AboutPage() {
             {/* Hero Section - Official Light Mode */}
             <section className="relative min-h-[90vh] flex items-center pt-32 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src={content['about_hero_background'] || "/abstract_educational_texture_1770224466075.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <Image
+                        src={content['about_hero_background'] || "/abstract_educational_texture_1770224466075.png"}
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover scale-105 animate-pulse-slow"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/60 to-white pointer-events-none" />
 

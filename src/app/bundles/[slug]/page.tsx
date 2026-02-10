@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { getBundleById } from '@/lib/bundles';
 import { getPageContent } from '@/lib/content';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -70,7 +71,14 @@ export default async function BundleDetailPage({ params }: PageProps) {
                                             {/* Mock visual */}
                                             <div className="absolute inset-0 opacity-50 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent)]" />
                                             {/* We can use the bundle image here if it's a cutout, otherwise cover */}
-                                            <img src={heroImage} alt={title} className="w-full h-full object-cover opacity-90" />
+                                            <Image
+                                                src={heroImage}
+                                                alt={title}
+                                                fill
+                                                priority
+                                                className="object-cover opacity-90"
+                                                sizes="100vw"
+                                            />
                                         </div>
                                     </div>
                                 </div>

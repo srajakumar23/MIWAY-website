@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import { Book, CheckCircle, Package, ArrowRight, Star, Sparkles, ShieldCheck, Award, Brain, Users, Target, Zap, Globe, Layout, Layers, BookOpen, Rocket } from 'lucide-react';
 import { FadeIn } from '@/components/ui/FadeIn';
 
@@ -24,7 +25,14 @@ export default async function BundlesPage() {
             {/* Hero Section - Product Portfolio Style */}
             <section className="relative min-h-[90vh] flex items-center pt-32 pb-40 overflow-hidden mesh-bg-primary">
                 <div className="absolute inset-0 -z-10 opacity-30 mix-blend-multiply">
-                    <img src={content['bundles_hero_image'] || "/bundles-hero.png"} alt="" className="w-full h-full object-cover scale-105 animate-pulse-slow" />
+                    <Image
+                        src={content['bundles_hero_image'] || "/bundles-hero.png"}
+                        alt=""
+                        fill
+                        priority
+                        className="object-cover scale-105 animate-pulse-slow"
+                        sizes="100vw"
+                    />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/10 to-white/90" />
 
@@ -109,7 +117,13 @@ export default async function BundlesPage() {
                                             {bundle.image ? (
                                                 <div className="absolute -bottom-12 -right-12 w-64 h-80 rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-white transform rotate-6 group-hover/card:rotate-0 group-hover/card:scale-105 transition-all duration-700 bg-white">
                                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 opacity-60" />
-                                                    <img src={bundle.image} alt={bundle.title} className="w-full h-full object-cover" />
+                                                    <Image
+                                                        src={bundle.image}
+                                                        alt={bundle.title}
+                                                        fill
+                                                        className="object-cover"
+                                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                                    />
                                                     {/* Badge */}
                                                     <div className="absolute bottom-6 left-6 z-20">
                                                         <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/50 shadow-sm">
