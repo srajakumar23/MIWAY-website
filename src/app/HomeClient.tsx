@@ -51,12 +51,12 @@ export default function HomeClient({ content }: HomeClientProps) {
             </section>
 
             {/* Why MIWAY - 3D Glass Cards */}
-            <section className="py-20 md:py-40 bg-white">
+            <section className="py-12 md:py-40 bg-white">
                 <div className="container">
                     <FadeIn>
                         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
                             <h2 className="text-[10px] font-black text-primary uppercase tracking-[0.4em] mb-6 md:mb-8">{getContent('home_features_label', 'The MIWAY Advantage')}</h2>
-                            <h2 className="text-5xl md:text-7xl lg:text-9xl font-black text-slate-900 mb-6 tracking-tighter leading-[0.85]" dangerouslySetInnerHTML={{ __html: getContent('home_features_title', 'Pedagogical <br /><span class="font-serif italic text-primary">Pillars</span>') }} />
+                            <h2 className="text-4xl md:text-7xl lg:text-9xl font-black text-slate-900 mb-6 tracking-tighter leading-[0.85]" dangerouslySetInnerHTML={{ __html: getContent('home_features_title', 'Pedagogical <br /><span class="font-serif italic text-primary">Pillars</span>') }} />
                         </div>
                     </FadeIn>
 
@@ -70,7 +70,7 @@ export default function HomeClient({ content }: HomeClientProps) {
                                 <FadeIn key={i} delay={0.2 * i}>
                                     <div className="group relative h-full perspective-1000">
                                         <div className={`absolute -inset-1 bg-gradient-to-br ${gradients[i]} rounded-[2.5rem] md:rounded-[3.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl`}></div>
-                                        <div className="bg-slate-50 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-slate-100 group-hover:-translate-y-4 group-hover:bg-white/90 group-hover:backdrop-blur-xl transition-all duration-700 h-full flex flex-col relative overflow-hidden shadow-sm group-hover:shadow-2xl">
+                                        <div className="bg-slate-50 p-6 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-slate-100 group-hover:-translate-y-4 group-hover:bg-white/90 group-hover:backdrop-blur-xl transition-all duration-700 h-full flex flex-col relative overflow-hidden shadow-sm group-hover:shadow-2xl">
                                             <div className={`w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br ${gradients[i]} shadow-xl rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center mb-8 md:mb-12 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                                                 <Icon size={32} className="text-white md:hidden" />
                                                 <Icon size={40} className="text-white hidden md:block" />
@@ -91,13 +91,13 @@ export default function HomeClient({ content }: HomeClientProps) {
             </section>
 
             {/* Featured Product Preview - Cinematic Grid */}
-            <section className="py-20 md:py-40 bg-slate-50 relative overflow-hidden">
+            <section className="py-12 md:py-40 bg-slate-50 relative overflow-hidden">
                 <div className="container relative z-10">
                     <FadeIn>
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 md:gap-12 mb-16 md:mb-24">
                             <div className="max-w-3xl">
                                 <h2 className="text-xs font-black text-primary uppercase tracking-[0.3em] mb-4 md:mb-6">Curriculum Solutions</h2>
-                                <h3 className="text-5xl md:text-7xl lg:text-9xl font-black text-slate-900 tracking-tighter leading-[0.85]">
+                                <h3 className="text-4xl md:text-7xl lg:text-9xl font-black text-slate-900 tracking-tighter leading-[0.85]">
                                     Curriculum <br />
                                     <span className="gradient-text font-serif italic">Portfolios.</span>
                                 </h3>
@@ -137,10 +137,10 @@ export default function HomeClient({ content }: HomeClientProps) {
                                     <div className={`absolute inset-0 bg-gradient-to-br ${bundle.color} opacity-90 group-hover:scale-110 transition-transform duration-1000`} />
                                     <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
 
-                                    <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between text-white z-20 drop-shadow-md">
+                                    <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-between text-white z-20 drop-shadow-md">
                                         <div>
                                             <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 opacity-90">{bundle.subtitle}</p>
-                                            <h4 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.85] font-serif italic mb-4 md:mb-6">{bundle.title}</h4>
+                                            <h4 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.85] font-serif italic mb-4 md:mb-6">{bundle.title}</h4>
                                             <p className="text-base md:text-lg font-medium opacity-90 leading-relaxed max-w-sm">{bundle.description}</p>
                                         </div>
 
@@ -161,7 +161,7 @@ export default function HomeClient({ content }: HomeClientProps) {
             </section>
 
             {/* Global Authority Section */}
-            <section className="py-20 md:py-40 bg-white">
+            <section className="py-12 md:py-40 bg-white">
                 <div className="container">
                     <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-center">
                         <FadeIn direction="right">
@@ -195,22 +195,22 @@ export default function HomeClient({ content }: HomeClientProps) {
             </section>
 
             {/* Final Conversion - High Impact */}
-            <section className="py-20 md:py-40 relative">
+            <section className="py-12 md:py-40 relative">
                 <div className="container relative z-10">
-                    <FadeIn className="bg-slate-900 rounded-[3rem] md:rounded-[5rem] px-8 py-20 md:p-32 text-center text-white relative overflow-hidden group shadow-2xl">
+                    <FadeIn className="bg-slate-900 rounded-[3rem] md:rounded-[5rem] px-6 py-16 md:p-32 text-center text-white relative overflow-hidden group shadow-2xl">
                         <div className="absolute inset-0 opacity-20 mesh-bg-dark" />
                         <div className="absolute -top-1/2 -left-1/2 w-[150%] h-[150%] bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-[200px] animate-pulse-slow" />
 
                         <div className="relative z-10 max-w-4xl mx-auto">
                             <h2 className="text-[10px] md:text-xs font-black text-primary-light uppercase tracking-[0.4em] mb-8 md:mb-12">Take the Next Step</h2>
-                            <h2 className="text-5xl md:text-7xl lg:text-9xl font-black mb-12 md:mb-16 tracking-tighter leading-[0.85] italic font-serif text-white">
+                            <h2 className="text-4xl md:text-7xl lg:text-9xl font-black mb-12 md:mb-16 tracking-tighter leading-[0.85] italic font-serif text-white">
                                 {getContent('home_cta_title', 'Ready to <br /> Transform?')}
                             </h2>
                             <p className="text-lg md:text-2xl text-slate-400 font-medium mb-12 md:mb-16 leading-relaxed max-w-2xl mx-auto">
                                 Join the elite network of progressive schools using MIWAY neuroscience-based curriculum solutions.
                             </p>
                             <Link href="/contact" className="inline-block w-full md:w-auto">
-                                <Button size="lg" className="w-full md:w-auto bg-white text-slate-900 shadow-2xl hover:scale-110 transition-all px-12 md:px-24 py-6 md:py-10 text-xl md:text-3xl font-black rounded-full" icon={<ArrowRight size={32} />}>
+                                <Button size="lg" className="w-full md:w-auto bg-white text-slate-900 shadow-2xl hover:scale-110 transition-all px-8 md:px-24 py-4 md:py-10 text-xl md:text-3xl font-black rounded-full" icon={<ArrowRight size={32} />}>
                                     Get Started
                                 </Button>
                             </Link>

@@ -96,7 +96,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-[9999] bg-white flex flex-col p-8 md:p-12 overflow-hidden h-[100dvh] w-screen"
+                        className="fixed inset-0 z-[9999] bg-white flex flex-col p-6 md:p-12 overflow-hidden h-[100dvh] w-screen"
                     >
                         {/* Background Detail */}
                         <div className="absolute inset-0 opacity-[0.03] mesh-bg-primary pointer-events-none" />
@@ -122,7 +122,7 @@ export default function Navbar() {
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className="group flex items-center justify-between"
                                 >
-                                    <span className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 group-hover:text-primary transition-all tracking-tighter font-serif italic">
+                                    <span className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 group-hover:text-primary transition-all tracking-tighter font-serif italic">
                                         {item.name}
                                     </span>
                                     <ArrowRight className="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={28} />

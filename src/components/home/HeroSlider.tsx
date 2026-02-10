@@ -72,7 +72,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
 
                         {/* Title - Global Visibility Optimization */}
                         <h1
-                            className="text-5xl md:text-7xl lg:text-[9rem] font-black leading-[0.95] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-700"
+                            className="text-4xl md:text-7xl lg:text-[9rem] font-black leading-[0.95] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-700"
                             dangerouslySetInnerHTML={{ __html: slides[current].title }}
                         />
 
@@ -86,7 +86,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
                             <Link href={slides[current].link || "/contact"} className="w-full md:w-auto">
                                 <Button
                                     size="lg"
-                                    className="w-full md:w-auto bg-white text-slate-900 shadow-2xl hover:scale-105 transition-all px-8 md:px-12 py-6 md:py-8 text-lg md:text-xl font-black rounded-full"
+                                    className="w-full md:w-auto bg-white text-slate-900 shadow-2xl hover:scale-105 transition-all px-6 md:px-12 py-4 md:py-8 text-lg md:text-xl font-black rounded-full"
                                     icon={<ArrowRight size={24} />}
                                 >
                                     {slides[current].cta}
