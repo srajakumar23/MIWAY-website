@@ -5,21 +5,25 @@ const prisma = new PrismaClient();
 
 async function main() {
     // Create admin user
-    const email = 'admin@miway.in';
     const password = await bcrypt.hash('password123', 10);
+    const users = [
+        { email: 'admin@miway.in', name: 'Admin User' },
+        { email: 'officer@miway.in', name: 'MIWAY Officer' }
+    ];
 
-    const user = await prisma.user.upsert({
-        where: { email },
-        update: {},
-        create: {
-            email,
-            name: 'Admin User',
-            password,
-            role: 'ADMIN',
-        },
-    });
+    for (const data of users) {
+        await prisma.user.upsert({
+            where: { email: data.email },
+            update: {},
+            create: {
+                ...data,
+                password,
+                role: 'ADMIN',
+            },
+        });
+    }
 
-    console.log({ user });
+    console.log('Seed users created');
 
     // Seed CMS Content
     const contentData = [
