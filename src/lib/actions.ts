@@ -30,15 +30,39 @@ export async function authenticate(
         });
 
         if (error instanceof AuthError) {
-            switch (error.type) {
-                case 'CredentialsSignin':
-                    return 'Invalid credentials.';
-                default:
-                    return `Auth failure: ${error.cause?.message || error.message || error.type}`;
-            }
+            const cause = error.cause as any;
+            const detail = cause?.err?.message || cause?.message || error.message || error.type;
+            return `Auth failure: ${detail} (Type: ${error.type})`;
         }
         return `Unexpected error: ${error.message || 'Check logs'}`;
     }
+}
+
+import { existsSync } from 'fs';
+import { resolve } from 'path';
+
+export async function runDiagnostic() {
+    const dbPath = resolve(process.cwd(), 'prisma/dev.db');
+    const exists = existsSync(dbPath);
+
+    let dbContentCount = 0;
+    let dbError = null;
+
+    try {
+        dbContentCount = await prisma.user.count();
+    } catch (e: any) {
+        dbError = e.message;
+    }
+
+    return {
+        cwd: process.cwd(),
+        dbPath,
+        dbExists: exists,
+        userCount: dbContentCount,
+        dbError,
+        envSecret: !!process.env.AUTH_SECRET,
+        envUrl: process.env.AUTH_URL || 'not set',
+    };
 }
 
 export async function deleteBundle(id: string) {
