@@ -48,7 +48,20 @@ export default function LoginPage() {
                     </div>
 
                     {errorMessage && (
-                        <p className="text-red-400 text-sm text-center bg-red-500/10 py-3 rounded-2xl border border-red-500/20 font-medium mt-4">{errorMessage}</p>
+                        <div className="space-y-4">
+                            <p className="text-red-400 text-sm text-center bg-red-500/10 py-3 rounded-2xl border border-red-500/20 font-medium mt-4">{errorMessage}</p>
+                            <button
+                                type="button"
+                                onClick={async () => {
+                                    const { runDiagnostic } = await import('@/lib/actions');
+                                    const result = await runDiagnostic();
+                                    alert(JSON.stringify(result, null, 2));
+                                }}
+                                className="w-full text-[10px] text-slate-500 hover:text-white transition-colors uppercase tracking-[0.2em] font-bold"
+                            >
+                                Run System Diagnostic
+                            </button>
+                        </div>
                     )}
                 </form>
             </div>
