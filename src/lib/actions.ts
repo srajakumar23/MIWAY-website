@@ -22,14 +22,19 @@ export async function authenticate(
             throw error;
         }
 
-        console.error('Auth Error:', error);
+        console.error('Detailed Auth Error:', {
+            name: error.name,
+            message: error.message,
+            cause: error.cause,
+            type: error.type
+        });
 
         if (error instanceof AuthError) {
             switch (error.type) {
                 case 'CredentialsSignin':
                     return 'Invalid credentials.';
                 default:
-                    return `Auth failure: ${error.message || error.type}`;
+                    return `Auth failure: ${error.cause?.message || error.message || error.type}`;
             }
         }
         return `Unexpected error: ${error.message || 'Check logs'}`;
